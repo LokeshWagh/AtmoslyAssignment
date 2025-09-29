@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-import Modal from "./Modal"; // Import the new Modal component
+import React, { useState, useEffect, useRef, useMemo } from "react";
+import Modal from "./Modal";
+import Skeleton from "./Skeleton";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 
 function LaunchCard({
@@ -48,27 +49,36 @@ function LaunchCard({
     setCurrentPage(1);
   }, [searchMission, filterYear, successfulOnly, showFavorites]);
 
-  if (loading) return <div>Loading...</div>;
-  if (!launches.length) return <div>No launch data available</div>;
-
-  // Filter launches by mission name, year, success, and favorites
-  const filteredLaunches = launches.filter((launch) => {
-    const missionMatch = searchMission
-      ? launch.name.toLowerCase().includes(searchMission.toLowerCase())
-      : true;
-
-    const launchYear = new Date(launch.date_utc).getFullYear();
-    const yearMatch =
-      filterYear && filterYear !== "All years"
-        ? launchYear.toString() === filterYear
+  // Memoize filtered launches for performance
+  const filteredLaunches = useMemo(() => {
+    return launches.filter((launch) => {
+      const missionMatch = searchMission
+        ? launch.name.toLowerCase().includes(searchMission.toLowerCase())
         : true;
 
-    const successMatch = successfulOnly ? launch.success : true;
+      const launchYear = new Date(launch.date_utc).getFullYear();
+      const yearMatch =
+        filterYear && filterYear !== "All years"
+          ? launchYear.toString() === filterYear
+          : true;
 
-    const favoriteMatch = showFavorites ? favorites.includes(launch.id) : true;
+      const successMatch = successfulOnly ? launch.success : true;
 
-    return missionMatch && yearMatch && successMatch && favoriteMatch;
-  });
+      const favoriteMatch = showFavorites ? favorites.includes(launch.id) : true;
+
+      return missionMatch && yearMatch && successMatch && favoriteMatch;
+    });
+  }, [launches, searchMission, filterYear, successfulOnly, showFavorites, favorites]);
+
+  if (loading)
+    return (
+      <>
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+      </>
+    );
+  if (!filteredLaunches.length) return ;
 
   // Pagination logic
   const indexOfLastLaunch = currentPage * launchesPerPage;
@@ -113,6 +123,7 @@ function LaunchCard({
             <div
               key={launch.id}
               className="bg-white border border-gray-200 rounded-xl shadow-sm p-4 max-w-[330px] w-full"
+              onClick={() => setSelectedLaunch(launch)}
             >
               <div className="flex justify-between items-center mb-2">
                 <span className="text-base font-semibold text-gray-900">
@@ -131,8 +142,7 @@ function LaunchCard({
                 </button>
               </div>
               <div className="text-sm text-gray-500 mb-1">
-                {launchDate.toLocaleDateString()}{" "}
-                {launchDate.toLocaleTimeString()} · {launch.rocket}
+                {launchDate.toLocaleDateString()} {launchDate.toLocaleTimeString()} · {launch.rocket}
               </div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-medium rounded bg-gray-200 px-2 py-0.5 text-gray-700">
@@ -144,7 +154,7 @@ function LaunchCard({
               </div>
               <button
                 className="text-xs font-medium underline text-gray-700 hover:text-blue-700 transition"
-                onClick={() => setSelectedLaunch(launch)} // Open modal with this launch's data
+                onClick={() => setSelectedLaunch(launch)}
               >
                 View details
               </button>
@@ -173,9 +183,7 @@ function LaunchCard({
               </option>
             )
           )}
-          
         </select>
-        
         <button
           onClick={() => changePage(currentPage + 1)}
           disabled={currentPage === totalPages}
@@ -188,7 +196,7 @@ function LaunchCard({
       {selectedLaunch && (
         <Modal
           launch={selectedLaunch}
-          onClose={() => setSelectedLaunch(null)} // Close modal
+          onClose={() => setSelectedLaunch(null)}
         />
       )}
     </>
@@ -196,3 +204,4 @@ function LaunchCard({
 }
 
 export default LaunchCard;
+
