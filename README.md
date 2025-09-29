@@ -2,7 +2,7 @@
 
 # Atmosly - SpaceX Mission Explorer
 Live Website : 
-[https://almoslyspacex-3x9cq3vl2-team-ezic0dess-projects.vercel.app/](https://almoslyspacex-3x9cq3vl2-team-ezic0dess-projects.vercel.app/)
+[https://almoslyspacex-3x9cq3vl2-team-ezic0dess-projects.vercel.app/](https://almoslyspacex-rg10v9h2f-team-ezic0dess-projects.vercel.app/)
 
 ## Project Overview
 
@@ -46,7 +46,7 @@ Atmosly is a React-based application that fetches real-time data from the SpaceX
 
 ## Live Deployment
 
-This project is deployed on Vercel and can be accessed at https://almoslyspacex-3x9cq3vl2-team-ezic0dess-projects.vercel.app/
+This project is deployed on Vercel and can be accessed at https://almoslyspacex-rg10v9h2f-team-ezic0dess-projects.vercel.app/
 
 ---
 
