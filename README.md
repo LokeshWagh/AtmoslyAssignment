@@ -27,8 +27,8 @@ Atmosly is a React-based application that fetches real-time data from the SpaceX
 
 ## Project Structure
 SPACEX-MISSION-EXPLORERS/
-├── public/
-└── src/
+├── public/ 
+└── src/ 
     ├── assets/
     ├── components/
     │   ├── Filters.jsx
