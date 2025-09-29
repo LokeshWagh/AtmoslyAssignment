@@ -21,7 +21,7 @@ function LaunchCard({
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const launchesPerPage = 20;
+  const launchesPerPage = 18;
 
   // Ref for scrolling to top
   const launchesContainerRef = useRef(null);
