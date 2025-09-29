@@ -1,8 +1,8 @@
 # React + Vite
 
 # Atmosly - SpaceX Mission Explorer
-
-[Live Demo](https://almoslyspacex-3x9cq3vl2-team-ezic0dess-projects.vercel.app/)
+Live Website : 
+[https://almoslyspacex-3x9cq3vl2-team-ezic0dess-projects.vercel.app/](https://almoslyspacex-3x9cq3vl2-team-ezic0dess-projects.vercel.app/)
 
 ## Project Overview
 
@@ -50,10 +50,10 @@ SPACEX-MISSION-EXPLORERS/
 
 ### Installation
 
-git clone git@github.com:LokeshWagh/AtmoslyAssignment.git
-cd AtmoslyAssignment
-npm install
-npm start
+### git clone git@github.com:LokeshWagh/AtmoslyAssignment.git
+### cd AtmoslyAssignment
+### npm install
+### npm start
 
 
 ### Usage
