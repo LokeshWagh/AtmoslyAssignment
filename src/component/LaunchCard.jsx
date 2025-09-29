@@ -123,7 +123,6 @@ function LaunchCard({
             <div
               key={launch.id}
               className="bg-white border border-gray-200 rounded-xl shadow-sm p-4 max-w-[330px] w-full"
-              onClick={() => setSelectedLaunch(launch)}
             >
               <div className="flex justify-between items-center mb-2">
                 <span className="text-base font-semibold text-gray-900">
