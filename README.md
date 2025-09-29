@@ -50,10 +50,10 @@ SPACEX-MISSION-EXPLORERS/
 
 ### Installation
 
-### git clone git@github.com:LokeshWagh/AtmoslyAssignment.git
-### cd AtmoslyAssignment
-### npm install
-### npm start
+- git clone git@github.com:LokeshWagh/AtmoslyAssignment.git
+- cd AtmoslyAssignment
+- npm install
+- npm start
 
 
 ### Usage
