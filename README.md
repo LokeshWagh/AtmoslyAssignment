@@ -25,27 +25,6 @@ Atmosly is a React-based application that fetches real-time data from the SpaceX
 - **Component Reusability:** Clear separation of components such as LaunchCard, Navbar, Filters, Modal, and Skeleton for better maintainability and scalability.
 - **Comments:** Code is well-commented for better understanding and maintainability.
 
-## Project Structure
-SPACEX-MISSION-EXPLORERS/
-├── public/ 
-└── src/ 
-    ├── assets/
-    ├── components/
-    │   ├── Filters.jsx
-    │   ├── LaunchCard.jsx
-    │   ├── Modal.jsx
-    │   ├── Navbar.tsx
-    │   └── Skeleton.jsx
-    ├── pages/
-    │   ├── Home.jsx
-    │   └── LaunchDetails.jsx
-    ├── App.jsx
-    ├── index.css
-    └── main.jsx
-├── package.json
-└── README.md
-
-
 ## Getting Started
 
 ### Installation
